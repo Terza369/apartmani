@@ -1,0 +1,147 @@
+﻿@model Apartmani.Web.Models.Visitor
+
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Visitor</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.VisitorGroupID)
+    <div class="row">
+        <label class="control-label col-md-2">Identifikacijska isprava</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.EnumDropDownListFor(model => model.IdentificationType, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdentificationType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.IdentificationNumber, new { @class = "form-control", placeholder = "Broj isprave" })
+                @Html.ValidationMessageFor(model => model.IdentificationNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Turist</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Prezime" })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "Ime" })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", placeholder = "Srednje ime" })
+                @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Spol</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.EnumDropDownListFor(model => model.Sex, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Prebivalište</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.ResidenceCountryID, (IEnumerable<SelectListItem>)ViewBag.PossibleCountries, new { @class = "form-control", id = "ResidenceCountryDropDown" })
+                @Html.ValidationMessageFor(model => model.ResidenceCountryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.ResidenceCityID, (IEnumerable<SelectListItem>)ViewBag.PossibleCities, new { @class = "form-control", id = "ResidenceCityDropDown" })
+                @Html.ValidationMessageFor(model => model.ResidenceCityID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.ResidenceAddress, new { @class = "form-control", placeholder = "Adresa" })
+                @Html.ValidationMessageFor(model => model.ResidenceAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Rođenje</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.BirthCountryID, (IEnumerable<SelectListItem>)ViewBag.PossibleCountries, new { @class = "form-control", id = "BirthCountryDropDown" })
+                @Html.ValidationMessageFor(model => model.BirthCountryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.BirthCityID, (IEnumerable<SelectListItem>)ViewBag.PossibleCities, new { @class = "form-control", id = "BirthCityCityDropDown" })
+                @Html.ValidationMessageFor(model => model.BirthCityID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control datefield", type = "date" })
+                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Državljanstvo</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.CitizenshipID, (IEnumerable<SelectListItem>)ViewBag.PossibleCountries, new { @class = "form-control", id = "CitizenshipDropDown" })
+                @Html.ValidationMessageFor(model => model.CitizenshipID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Katgorija obv. BP</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.EnumDropDownListFor(model => model.TaxpayerCategory, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TaxpayerCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Organizacija dolaska</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.EnumDropDownListFor(model => model.ArrivalOrganization, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ArrivalOrganization, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="control-label col-md-2">Vrsta usluge</label>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.EnumDropDownListFor(model => model.TypeOfService, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TypeOfService, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-3">
+            <input type="submit" value="Potvrdi" class="btn btn-default" />
+        </div>
+    </div>
+</div>

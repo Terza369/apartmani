@@ -1,0 +1,105 @@
+﻿@model Apartmani.Web.Models.Apartment
+
+<div class="container" style="background-color: rgba(255, 255, 255, 0.5); padding-top: 0.2%; letter-spacing: 1px;">
+    <div>
+        <div class="row" style="padding: 2% 0; letter-spacing: 2px; text-align: center; color: #5c5c5c;">
+            <div class="col-sm-12">
+                <h2>Apartment 2</h2>
+            </div>
+        </div>
+        <div class="row" style="background-color: rgba(220, 255, 220, 0.5); padding: 6% 0; ">
+            <div class="col-sm-12">
+                <p>
+                    We offers accommodations all year round in comfortable and nicely furnished apartments with sea view.
+                    Each has a separate entrance and has all the necessary equipment, Wi-Fi, TV/SAT and air conditioning.
+                    The apartments are located in the old heart of the city on the waterfront.
+                    Only a few steps away is the bus station and ship transportation lines for visiting surrounding attractions.
+                </p>
+
+                <p>
+                    Apartment 2 is the bigger of our two apartments. It's ideal for a familly of 4 with posibility of additional bedding for @Model.AdditionalBeds person.
+                    It consists of hallway, bathroom, kitchen, dining room, living room and 2 bedrooms as shown on the ground plan below.
+                </p>
+            </div>
+        </div>
+
+        <div class="row" style="padding: 6% 0;">
+            <img src="~/Pictures/Home/2-tlocrt.jpg" style="width: 50%;" class="col-sm-6" />
+
+            <div class="col-sm-6" style="padding: 8% 0 0 8%;">
+                <div style=" margin-top: -15%;">
+                    <h3>AVAILABLE ON REQUEST:</h3>
+                    <ul>
+                        <li>crib</li>
+                        <li>washing machine</li>
+                        <li>microwave</li>
+                        <li>iron and ironing board</li>
+                        <li>filter coffee machine</li>
+                    </ul>
+                </div>
+                <div class="col-sm-12">
+                    <div class="gumb-wrapper">
+                        <a href="#" class="btn btn-default btn-lg gumb" role="button" data-toggle="modal" data-target="#gallery2">Gallery</a>
+                    </div>
+                    <div class="gumb-wrapper">
+                        <a href=@Url.Action("Create", "Inquiries", new { Area = "Admin", ApartmentID = 2 }) class="btn btn-info btn-lg gumb" role="button">Make inquiry</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="background-color: rgba(220, 255, 220, 0.5); padding: 6% 0;">
+            <div class="col-sm-4" style="padding: 2% 8%;">
+                <h3>BEDROOM:</h3>
+                <ul>
+                    <li>double bed</li>
+                    <li>sofa</li>
+                    <li>wardrobe</li>
+                    <li>cosmetic table with chair</li>
+                    <li>flat screen TV/SAT</li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4" style="padding: 2% 8%;">
+                <h3>BATHROOM:</h3>
+                <ul>
+                    <li>shower cabin</li>
+                    <li>toilet</li>
+                    <li>wash basin</li>
+                    <li>hand soap</li>
+                    <li>toilet paper</li>
+                    <li>hair dryer</li>
+                    <li>towels</li>
+                    <li>mirror</li>
+                </ul>
+            </div>
+
+            <div class="col-sm-4" style="padding: 2% 8%;">
+                <h3>KITCHEN:</h3>
+                <ul>
+                    <li>table and chairs</li>
+                    <li>fridge with freezer</li>
+                    <li>ceramic glass cooktop</li>
+                    <li>hood</li>
+                    <li>sink</li>
+                    <li>dishes</li>
+                    <li>dish cloth</li>
+                    <li>kettle</li>
+                    <li>air conditioning</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" style="padding: 10% 0;">
+            <div class="col-sm-12">
+                <p>
+                    All standard and available on request equipment, taxes and cleaning are included in the price.
+                    For a stay of only one night, an additional 10 € per person charge will be added.
+                    Check in is between 4 pm and 10 pm, and check out until 10 am.
+                    Smoking and pets are not allowed.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

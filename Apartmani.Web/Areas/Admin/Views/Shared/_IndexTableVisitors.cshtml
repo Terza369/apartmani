@@ -1,0 +1,34 @@
+﻿@model List<Apartmani.Web.Models.Visitor>
+
+<table id="visitor-table" class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Prezime</th>
+            <th>Ime</th>
+            <th>Grad</th>
+            <th>Država</th>
+            <th>Spol</th>
+            <th>Datum rođenja</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var visitor in Model)
+        {
+        <tr onclick="location.href='@Url.Action("Details", "Visitors", new { id = visitor.Id })'" style="cursor: pointer">
+            <td>@visitor.Id</td>
+            <td>@visitor.LastName</td>
+            <td>@visitor.FirstName</td>
+            <td>@visitor.ResidenceCity.Name</td>
+            <td>@visitor.ResidenceCountry.Name</td>
+            <td>@visitor.Sex</td>
+            <td>@visitor.BirthDate.ToShortDateString()</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = visitor.Id, controller = "Visitors" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = visitor.Id, controller = "Visitors" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,130 @@
+﻿@model Apartmani.Web.Areas.Admin.Models.Prices
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>Cijene</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Apartman
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apartment.Name)
+        </dd>
+
+        <dt>
+            Godina
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            Siječanj
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.January)
+        </dd>
+
+        <dt>
+            Veljača
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fabruary)
+        </dd>
+
+        <dt>
+            Ožujak
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.March)
+        </dd>
+
+        <dt>
+            Travanj
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.April)
+        </dd>
+
+        <dt>
+            Svibanj
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.May)
+        </dd>
+
+        <dt>
+            Lipanj
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.June)
+        </dd>
+
+        <dt>
+            Srpanj
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.July)
+        </dd>
+
+        <dt>
+            Kolovoz
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.August)
+        </dd>
+
+        <dt>
+            Rujan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Septembar)
+        </dd>
+
+        <dt>
+            Listopad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Octobar)
+        </dd>
+
+        <dt>
+            Studeni
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Novembar)
+        </dd>
+
+        <dt>
+            Prosinac
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Decembar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmijeni", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Nazad na listu", "Index")
+</p>

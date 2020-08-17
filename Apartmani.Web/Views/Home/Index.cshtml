@@ -1,0 +1,216 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row" id="indexWrapper">
+    <div class="col-md-6 apartment-container" id="apartment1-container-wrapper">
+        <div class="text-center apartment-container-child" id="apartment1-container">
+            <div class="apartment-wrapper">
+                <div onclick="apartmentClick(this)">
+                    <p>Apartment 1</p>
+                </div>
+                <div class="apartment-buttons">
+                    <div class="gumb-wrapper">
+                        <a href="#" class="btn btn-default btn-lg gumb" role="button" onclick="gumbClickDetails()">Details</a>
+                    </div>
+                    <div class="gumb-wrapper">
+                        <a href="#" class="btn btn-default btn-lg gumb" role="button" data-toggle="modal" data-target="#gallery1">Gallery</a>
+                    </div>
+                    <div class="gumb-wrapper">
+                        <a href=@Url.Action("Create", "Inquiries", new { Area = "Admin", ApartmentID = 1 }) class="btn btn-info btn-lg gumb" role="button">Make inquiry</a>
+                    </div>
+                </div>
+            </div>
+            <div id="partial-wrapper-details"></div>
+        </div>
+    </div>
+    <div class="col-md-6 apartment-container" id="apartment2-container-wrapper">
+        <div class="text-center apartment-container-child" id="apartment2-container">
+            <div class="apartment-wrapper">
+                <div onclick="apartmentClick2(this)">
+                    <p>Apartment 2</p>
+                </div>
+                <div class="apartment-buttons">
+                    <div class="gumb-wrapper">
+                        <a href="#" class="btn btn-default btn-lg gumb" role="button" onclick="gumbClickDetails2()">Details</a>
+                    </div>
+                    <div class="gumb-wrapper">
+                        <a href="#" class="btn btn-default btn-lg gumb" role="button" data-toggle="modal" data-target="#gallery2">Gallery</a>
+                    </div>
+                    <div class="gumb-wrapper">
+                        <a href=@Url.Action("Create", "Inquiries", new { Area = "Admin", ApartmentID = 2 }) class="btn btn-info btn-lg gumb" role="button">Make inquiry</a>
+                    </div>
+                </div>
+            </div>
+            <div id="partial-wrapper-details2"></div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="gallery1" role="dialog"></div>
+
+    <div class="modal fade" id="gallery2" role="dialog"></div>
+
+
+
+
+</div>
+
+@section scripts {
+
+<script type="text/javascript">
+        $(function () {
+            document.getElementById("navigation").children[0].classList.add("active");
+            document.getElementById("navigation").children[1].classList.remove("active");
+            document.getElementById("navigation").children[2].classList.remove("active");
+
+            $(".apartment-container").css("overflow", "hidden");
+
+            $(".apartment-container").css("height", ($(window).height() - $("#navigationWrapper").height() + 2).toString());
+            $(".apartment-container-child").css("height", ($(window).height() - $("#navigationWrapper").height() + 2).toString());
+
+            $(".apartment-container-child").hover(function () {
+                $(this).css("transform", "scale(1.05)");
+            }, function () {
+                $(this).css("transform", "scale(1.00)");
+            });
+
+
+
+
+            $.ajax({
+                url: "@Url.Action("Details", new { id = 1 })",
+                method: "GET",
+                success: function (html) {
+                    $("#partial-wrapper-details").html(html);
+                }
+            });
+
+            $.ajax({
+                url: "@Url.Action("Details2", new { id = 2 })",
+                method: "GET",
+                success: function (html) {
+                    $("#partial-wrapper-details2").html(html);
+                }
+            });
+
+            $.ajax({
+                url: "@Url.Action("Gallery1")",
+                method: "GET",
+                success: function (html) {
+                    $("#gallery1").html(html);
+                }
+            });
+
+            $.ajax({
+                url: "@Url.Action("Gallery2")",
+                method: "GET",
+                success: function (html) {
+                    $("#gallery2").html(html);
+                }
+            });
+        });
+
+        function apartmentClick(sender) {
+            $(sender).fadeOut(200);
+            $(".apartment-buttons").delay(200).fadeIn(200);
+            $("#apartment1-container").css("background-image", "url('../../Pictures/Home/1-details-opacity.png')");
+        }
+
+        function apartmentClick2(sender) {
+            $(sender).fadeOut(200);
+            $(".apartment-buttons").delay(200).fadeIn(200);
+            $("#apartment2-container").css("background-image", "url('../../Pictures/Home/2-details-opacity.png')");
+        }
+
+        function gumbClickDetails() {
+
+            var a1 = $("#apartment1-container-wrapper");
+            var a2 = $("#apartment2-container-wrapper");
+
+            a1.removeClass("col-md-6");
+            a2.removeClass("col-md-6");
+
+            a1.css("width", "50%");
+            a1.animate({ width: '100%' }, 500);
+
+
+            a2.fadeOut(0);
+
+
+            $(".apartment-buttons").css("paddingTop", "355px");
+
+            $(".apartment-buttons").delay(500).fadeOut(500);
+
+            $(".apartment-wrapper").delay(700).fadeOut(300);
+
+            $(".apartment-container-child").hover(function () {
+                $(this).css("transform", "scale(1.00)");
+            }, function () {
+                $(this).css("transform", "scale(1.00)");
+            });
+
+            $(".apartment-container-child")
+                .delay(600)
+                .queue(function (next) {
+                    $(this).css("transform", "scale(1.00)");
+                    next();
+            });
+
+            $("#partial-wrapper-details").delay(1000).fadeIn(500);
+
+            $("#partial-wrapper-details").delay(1000).css("text-align", "left");
+
+            $(".apartment-container").css("height", ($("#partial-wrapper-details").height().toString()));
+            $(".apartment-container-child").css("height", ($("#partial-wrapper-details").height().toString()));
+        }
+
+        function gumbClickDetails2() {
+
+            var a1 = $("#apartment1-container-wrapper");
+            var a2 = $("#apartment2-container-wrapper");
+
+            a1.removeClass("col-md-6");
+            a2.removeClass("col-md-6");
+
+            a2.css("float", "right");
+
+            a2.css("width", "50%");
+            a2.animate({ width: '100%' }, 500);
+
+
+            a1.fadeOut(0);
+
+
+            $(".apartment-buttons").css("paddingTop", "355px");
+
+            $(".apartment-buttons").delay(500).fadeOut(500);
+
+            $(".apartment-wrapper").delay(700).fadeOut(300);
+
+            $(".apartment-container-child").hover(function () {
+                $(this).css("transform", "scale(1.00)");
+            }, function () {
+                $(this).css("transform", "scale(1.00)");
+            });
+
+            $(".apartment-container-child")
+                .delay(600)
+                .queue(function (next) {
+                    $(this).css("transform", "scale(1.00)");
+                    next();
+                });
+
+            $("#partial-wrapper-details2").delay(1000).fadeIn(500);
+
+            $("#partial-wrapper-details2").delay(1000).css("text-align", "left");
+
+            $(".apartment-container").css("height", ($("#partial-wrapper-details2").height().toString()));
+            $(".apartment-container-child").css("height", ($("#partial-wrapper-details2").height().toString()));
+        }
+
+</script>
+
+
+
+}

@@ -1,0 +1,110 @@
+﻿.apartment-wrapper > div > p {
+    padding-top: 41%;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+    text-transform: uppercase;
+    transition: font-size 0.2s, letter-spacing 0.2s, padding-top 0.2s;
+    transition-timing-function: linear;
+}
+
+.apartment-wrapper:hover > div > p {
+    font-size: 23px;
+    letter-spacing: 4px;
+    padding-top: 39%;
+}
+
+.apartment-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.apartment-wrapper > div:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.apartment-container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.apartment-container-child {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 0.2s, transform 0.2s;
+    transition-timing-function: linear;
+}
+
+.apartment-container-child::before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+#apartment1-container {
+    background-image: url("../../Pictures/Home/1-details-opacity.png");
+}
+
+#apartment1-container:hover {
+    background-image: url("../../Pictures/Home/1-details.jpg");
+}
+
+#apartment2-container {
+    background-image: url("../../Pictures/Home/2-details-opacity.png");
+}
+
+#apartment2-container:hover {
+    background-image: url("../../Pictures/Home/2-details.jpg");
+}
+
+.toggleVisibility {
+    display: none;
+}
+
+.apartment-buttons {
+    padding-top: 35%;
+    display: none;
+}
+
+.gumb {
+    width: 200px;
+}
+
+.gumb-wrapper {
+    margin-bottom: 20px;
+}
+
+#partial-wrapper-details {
+    display: none;
+    font-size: 18px;
+    
+}
+
+#partial-wrapper-gallery {
+    display: none;
+}
+
+#partial-wrapper-details2 {
+    display: none;
+    font-size: 18px;
+}
+
+#partial-wrapper-gallery2 {
+    display: none;
+}

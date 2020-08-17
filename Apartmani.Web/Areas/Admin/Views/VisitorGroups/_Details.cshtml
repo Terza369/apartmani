@@ -1,0 +1,30 @@
+﻿@model Apartmani.Web.Models.VisitorGroup
+
+<dl class="dl-horizontal">
+    <dt>Apartman</dt>
+    <dd>@Html.DisplayFor(model => model.Apartment.Name)</dd>
+
+    <dt>Datum dolaska</dt>
+    <dd>@Model.DateFrom.ToShortDateString()</dd>
+
+    <dt>Datum odlaska</dt>
+    <dd>@Model.DateTo.ToShortDateString()</dd>
+
+    <dt>Broj mobitela</dt>
+    <dd>@Model.BrojMobitela</dd>
+
+    <dt>E-mail</dt>
+    <dd>@Model.Email</dd>
+
+    <dt>Broj osoba</dt>
+    <dd>@Model.BrojOsoba</dd>
+
+    <dt>Koljevka</dt>
+    <dd>@Model.Kolijevka</dd>
+
+    <dt>Kreirano</dt>
+    <dd>@Model.TimeOfCreation</dd>
+
+    <dt>Poruka</dt>
+    <dd>@Model.Message</dd>
+</dl>

@@ -1,0 +1,69 @@
+﻿@model Apartmani.Web.Areas.Admin.Models.Calendar.Month
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-sm-12" id="calendar">
+
+    <div id="calendarHeader" class="">
+        <div>
+            <span class="" style="cursor: pointer;">
+                @Html.ActionLink("-", "DecrementMonth", new { controller = "Calendar" })
+            </span>
+            <span style="padding-left: 20px; padding-right: 20px;">
+                @Model.Id @Model.Year
+            </span>
+            <span class="" style="cursor: pointer;">
+                +
+            </span>
+        </div>
+    </div>
+
+    <div id="calendarHeader2">
+        <div>PON</div>
+        <div>UTO</div>
+        <div>SRI</div>
+        <div>ČET</div>
+        <div>PET</div>
+        <div>SUB</div>
+        <div>NED</div>
+    </div>
+    <div id="calendarBody">
+
+
+
+        @for (int i = 0; i < Model.StartingDayOfWeek - 1; i++)
+        {
+            <div class="calendar calendarFree"></div>
+        }
+
+
+        @for (int j = 0; j < Model.Days.Count; j++)
+        {
+            if (Model.Days[j].Occupied)
+            {
+                <div class="calendar calendarOccupied">@(j + 1)</div>
+            }
+            else if ((Model.Days[j].Departure) && (Model.Days[j].Arrival))
+            {
+                <div class="calendar calendarShift">@(j + 1)</div>
+            }
+            else if (Model.Days[j].Departure)
+            {
+                <div class="calendar calendarDeparture">@(j + 1)</div>
+            }
+            else if (Model.Days[j].Arrival)
+            {
+                <div class="calendar calendarArrival">@(j + 1)</div>
+            }
+            else
+            {
+                <div class="calendar calendarFree">@(j + 1)</div>
+            }
+        }
+
+    </div>
+</div>
+
+

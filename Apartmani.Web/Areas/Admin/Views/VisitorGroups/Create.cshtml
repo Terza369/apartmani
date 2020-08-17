@@ -1,0 +1,34 @@
+﻿@model Apartmani.Web.Models.VisitorGroup
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Nova grupa</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("_CreateOrEdit")
+}
+
+<div>
+    @Html.ActionLink("Nazad na listu", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        /*$(document).ready(function () {
+            $("#ApartmentsDropDown option").each(function () {
+                if ($(this).val() == "2")
+                    $(this).attr("selected", "true");
+            });
+        });*/
+
+        $(document).ready(function () {
+            $("#ApartmentsDropDown option").eq(0).attr("selected", "true");
+        });
+    </script>
+}

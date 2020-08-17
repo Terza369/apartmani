@@ -1,0 +1,25 @@
+﻿@model Apartmani.Web.Models.VisitorGroup
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Promijeni</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("_CreateOrEdit")
+}
+
+<div>
+    @Html.ActionLink("Nazad na grupu", "Details", "VisitorGroups", new { id = Model.Id }, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+    </script>
+}

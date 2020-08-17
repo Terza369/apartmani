@@ -1,0 +1,74 @@
+﻿#navigationWrapper {
+    
+}
+
+#navigationHeader a {
+    font-size: 26px;
+}
+
+#navigationHeader {
+    position: absolute;
+}
+
+#navigationHeader span {
+    color: mediumpurple;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#navigation li {
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+#navigationBody {
+    display: block;
+    width: 57%;
+    margin: auto;
+}
+
+#navigationBodyPublic {
+    display: block;
+    width: 25%;
+    margin: auto;
+}
+
+.navbar {
+    min-height: 60px;
+}
+
+.navbar-brand {
+    padding: 0 15px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.navbar-toggle {
+    /* (80px - button height 34px) / 2 = 23px */
+    margin-top: 13px;
+    padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        /* (80px - line-height of 27px) / 2 = 26.5px */
+        padding-top: 20.5px;
+        padding-bottom: 20.5px;
+        line-height: 21px;
+    }
+}
+
+#inquiries-count {
+    color: white;
+    background-color: darkorange;
+    padding: 2px 5px 2px 8px;
+    text-align: center;
+    display: none;
+    font-size: 17px;
+    font-weight: 200;
+    line-height: 1;
+    vertical-align: central;
+    border-radius: 50%;
+}

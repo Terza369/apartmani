@@ -1,0 +1,22 @@
+﻿@model Apartmani.Web.Models.VisitorGroupFilter
+
+
+<form action="@Url.Action("Index")" method="post" class="form-inline">
+    <div class="form-group">
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control", placeholder = "Pretraga po nazivu" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(p => p.Apartment, new { @class = "form-control", placeholder = "Pretraga po apartmanu" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(p => p.DateFrom, new { @class = "form-control datefield", type = "date" })
+        @Html.ValidationMessageFor(model => model.DateFrom, "", htmlAttributes: new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(p => p.DateTo, new { @class = "form-control datefield", type = "date" })
+        @Html.ValidationMessageFor(model => model.DateTo, "", htmlAttributes: new { @class = "text-danger" })
+    </div>
+    <button type="button" onclick="performFilter(this)" class="btn btn-default">Traži</button>
+    
+</form>
+

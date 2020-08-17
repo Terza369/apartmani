@@ -1,0 +1,116 @@
+﻿.status-container > div > h3 {
+    padding-top: 41%;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: green;
+    text-shadow: 2px 2px 10px black;
+    text-transform: uppercase;
+}
+
+.status-container {
+    height: 887px;
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow: hidden;
+}
+
+.status-container-child {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    font-size: 20px;
+    color: #525252;
+    margin-top: 30%;
+}
+
+.status-container-child strong a:link{
+    color: black;
+    text-decoration: none;
+}
+
+.status-container-child strong a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.status-container-child strong a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.status-container-child strong a:active {
+    color: black;
+    text-decoration: none;
+}
+
+.circle {
+    height: 250px;
+    width: 250px;
+    position: relative;
+    margin: auto;
+    margin-bottom: 15%;
+}
+
+.circle .border {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    border-radius: 50%;
+    border-style: inset solid solid solid;
+    border-width: 30px;
+    animation-name: Rotate;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.circle .border-empty {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 20px;
+}
+
+.play {
+    font-size: 150px;
+    color: gray;
+    text-align: center;
+    padding: 15px;
+}
+
+@keyframes Rotate {
+    0% {
+        clip-path: circle(50%);
+        transform: rotate(0deg);
+    }
+
+    50% {
+        clip-path: circle(45%);
+        transform: rotate(180deg);
+    }
+
+    100% {
+        clip-path: circle(50%);
+        transform: rotate(360deg);
+    }
+}
+
+.circle .style-purple {
+    border-color: #b399ff;
+}
+
+.circle .style-green {
+    border-color: lightgreen;
+}
+
+.circle .style-gray {
+    border-color: lightgray;
+}

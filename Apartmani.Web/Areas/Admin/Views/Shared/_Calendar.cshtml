@@ -1,0 +1,111 @@
+﻿@model Apartmani.Web.Areas.Admin.Models.Calendar.Month
+
+<div class="col-sm-12" id="calendar">
+
+    <div id="calendarHeader" class="">
+        <div class="col-sm-12">
+            <div class="btn-group col-sm-2" style="float: left; padding-top: 0.75%;">
+                <button type="button" class="btn btn-default" onclick="performCalendar(@Model.Id, @Model.Year, 1)" style="background-color: white; color: mediumpurple; font-weight: bold;">1</button>
+                <button type="button" class="btn btn-default" onclick="performCalendar(@Model.Id, @Model.Year, 2)" style="background-color: white; color: mediumpurple; font-weight: bold;">2</button>
+            </div>
+
+            <div class="col-sm-1" style="font-size: 20px;">
+                @{
+                    if (Model.ApartmentID == 1)
+                    {
+                        <p>Mali</p>
+                    }
+                    if (Model.ApartmentID == 2)
+                    {
+                        <p>Veliki</p>
+                    }
+                }
+            </div>
+
+            <div style="font-size: 20px;" class="col-sm-6">
+                <span class="glyphicon glyphicon-chevron-left" style="cursor: pointer;" onclick="performCalendar(@Model.Id - 1, @Model.Year, @Model.ApartmentID)"></span>
+
+                <span style="padding-left: 20px;">
+                    @Model.Id
+                </span>
+
+                <span style="padding-right: 20px;">
+                    @Model.Year
+                </span>
+
+                <span class="glyphicon glyphicon-chevron-right" style="cursor: pointer; " onclick="performCalendar(@Model.Id + 1, @Model.Year, @Model.ApartmentID)"> </span>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="close glyphicon glyphicon-remove" data-dismiss="modal" style="font-size: 20px; margin-top: 6%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="calendarHeader2">
+        <div>PON</div>
+        <div>UTO</div>
+        <div>SRI</div>
+        <div>ČET</div>
+        <div>PET</div>
+        <div>SUB</div>
+        <div>NED</div>
+    </div>
+    <div id="calendarBody">
+
+
+        @{
+            
+            var counter = 0;
+
+            for (int i = 0; i < Model.StartingDayOfWeek - 1; i++)
+            {
+                counter++;
+                <div class="calendar calendarFree"></div>
+            }
+
+            for (int i = 0; i < Model.Days.Count; i++)
+            {
+                counter++;
+                if (Model.Days[i].Occupied)
+                {
+                    <div class="calendar calendarOccupied">@(i + 1)</div>
+                }
+                else if ((Model.Days[i].Departure) && (Model.Days[i].Arrival))
+                {
+                    <div class="calendar calendarShift">@(i + 1)</div>
+                }
+                else if (Model.Days[i].Departure)
+                {
+                    <div class="calendar calendarDeparture">@(i + 1)</div>
+                }
+                else if (Model.Days[i].Arrival)
+                {
+                    <div class="calendar calendarArrival">@(i + 1)</div>
+                }
+                else
+                {
+                    <div class="calendar calendarFree">@(i + 1)</div>
+                }
+            }
+
+            while (counter < 35)
+            {
+                counter++;
+                <div class="calendar calendarFree"></div>
+            }
+
+            if(counter > 35)
+            {
+                while (counter < 42)
+                {
+                    counter++;
+                    <div class="calendar calendarFree"></div>
+                }
+            }
+        }
+
+
+    </div>
+</div>
+

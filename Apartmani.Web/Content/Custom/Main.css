@@ -1,0 +1,67 @@
+﻿@import url("HomeIndex.css");
+
+
+h2 {
+    color: mediumpurple;
+}
+
+#inquiries-table {
+    text-align: center;
+    
+}
+
+#inquiries-table th {
+    text-align: center;
+}
+
+#inquiries-table td a {
+    text-align: center;
+    
+}
+
+#contact {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+#about {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+#simun-img {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+}
+
+#simun-img img{
+    width: 35%;
+    padding: 5% 0;
+}
+
+#irena-img {
+    margin: auto;
+    text-align: center;
+}
+
+#irena-img img {
+    width: 40%;
+}
+
+#jakov-img {
+    margin: auto;
+    text-align: center;
+}
+
+#jakov-img img {
+    width: 40%;
+}
+
+#host-pics {
+    padding: 5% 0;
+}
+
+#host-text {
+    text-align: center;
+}

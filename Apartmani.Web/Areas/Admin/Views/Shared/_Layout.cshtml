@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Custom/BootstrapOverride.css")
+    @Styles.Render("~/Content/Custom/Nav.css")
+    @Styles.Render("~/Content/Custom/Main.css")
+    @Styles.Render("~/Content/Custom/Calendar.css")
+    @Styles.Render("~/Content/Custom/Status.css")
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" id="navigationWrapper">
+        <div class="container-fluid">
+            <div class="navbar-header" id="navigationHeader">
+                <a href=@Url.Action("Index", "VisitorGroups") class="navbar-brand"><span>LIFE</span> apartments <span style="color: red; font-size: 25px; font-weight:100">/Admin</span></a>
+            </div>
+            <div class="navbar-collapse collapse" id="navigationBody">
+                <ul class="nav navbar-nav" id="navigation">
+                    <li>@Html.ActionLink("Status", "Status", new { controller = "VisitorGroups" })</li>
+                    <li><a href=@Url.Action("Index", "Inquiries")>Upiti<span id="inquiries-count"></span></a></li>
+                    <li>@Html.ActionLink("Gosti", "Index", new { controller = "VisitorGroups" })</li>
+                    <li data-toggle="modal" data-target="#myModal"><a href="#">Kalendar</a></li>
+                    <li>@Html.ActionLink("Cijene", "Index", new { controller = "Prices" })</li>
+                    <li>@Html.ActionLink("Javna stranica", "Index", new { area = "", controller = "Home" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="body-content container">
+        @RenderBody()
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div id="calendar-wrapper"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+    <script type="text/javascript">
+            $(function () {
+                $.ajax({
+                    url: "@Url.Action("Index", "Calendar", new { area = "Admin"})",
+                    method: "GET",
+                    success: function (html) {
+                        $("#calendar-wrapper").html(html);
+                    }
+                });
+
+                $.ajax({
+                    url: "@Url.Action("Count", "Inquiries", new { area = "Admin"})",
+                    method: "GET",
+                    success: function (html) {
+                        $("#inquiries-count").html(html);
+                        if ($("#inquiries-count").text().charAt(0) != "0") {
+                            $("#inquiries-count").show();
+                        }
+                    }
+                });
+
+            });
+
+            function performCalendar(monthNew, yearNew, apartmentNew) {
+                $.ajax({
+                url: "@Url.Action("Index", "Calendar", new { area = "Admin" })",
+                method: "GET",
+                data: "month=" + monthNew + "&year=" + yearNew + "&apartment=" + apartmentNew,
+                success: function (html) {
+                    $("#calendar-wrapper").html(html);
+                }
+            });
+            }
+
+
+    </script>
+
+
+
+</body>
+</html>
+
+
+

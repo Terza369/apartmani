@@ -1,0 +1,47 @@
+﻿@model Apartmani.Web.Areas.Admin.Models.Inquiry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.LastName)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Apartman</dt>
+        <dd>@Html.DisplayFor(model => model.Apartment.Name)</dd>
+
+        <dt>Datum dolaska</dt>
+        <dd>@Html.DisplayFor(model => model.DateFrom)</dd>
+
+        <dt>Datum odlaska</dt>
+        <dd>@Html.DisplayFor(model => model.DateTo)</dd>
+
+        <dt>Broj osoba</dt>
+        <dd>@Html.DisplayFor(model => model.Persons)</dd>
+
+        <dt>Ime</dt>
+        <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+
+        <dt>Prezime</dt>
+        <dd>@Html.DisplayFor(model => model.LastName)</dd>
+
+        <dt>E-mail</dt>
+        <dd>@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt>Mobitel</dt>
+        <dd>@Html.DisplayFor(model => model.Phone)</dd>
+
+        <dt>Poruka</dt>
+        <dd>@Html.DisplayFor(model => model.Message)</dd>
+
+    </dl>
+</div>
+<p>
+    <a href=@Url.Action("Accept", new { id= Model.Id }) type="button" class="btn btn-sm btn-success">Accept</a>
+    <a href=@Url.Action("Decline", new { id= Model.Id }) type="button" class="btn btn-sm btn-danger">Decline</a>
+    <hr />
+    @Html.ActionLink("Back to List", "Index")
+</p>

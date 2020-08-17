@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<div class="container" id="about">
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="" id="simun-img">
+                <img src="~/Pictures/About/Simun.jpg" class="img-circle" />
+                <div class="row">
+                    <p>Ja san Šimun. Ovo je moja stranica. Zahvaljujem svom profesoru na ovom i onom. Zahvaljujem svojim roditeljima na podršci i parama.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="row" id="host-pics">
+            <div class="col-md-6">
+                <div class="" id="jakov-img">
+                    <img src="~/Pictures/About/Jakov.jpg" class="img-circle" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="" id="irena-img">
+                    <img src="~/Pictures/About/Irena.jpg" class="img-circle" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="host-text">
+            <div class="col-md-12">
+                <p>Mi smo njegovi roditelji i super hostovi, Jakov i Irena. Pricat cemo s vama puno kad dodete. Nemojte zaboravit platit.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+
+    <script type="text/javascript">
+        $(function () {
+            document.getElementById("navigation").children[0].classList.remove("active");
+            document.getElementById("navigation").children[1].classList.remove("active");
+            document.getElementById("navigation").children[2].classList.add("active");
+        });
+
+
+    </script>
+
+
+
+}

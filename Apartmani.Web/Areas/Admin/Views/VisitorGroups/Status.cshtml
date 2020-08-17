@@ -1,0 +1,180 @@
+﻿@model List<Apartmani.Web.Areas.Admin.Models.Status>
+
+@{
+    ViewBag.Title = "Status";
+}
+
+<div class="row" id="statusWrapper">
+    @{
+        bool empty1 = false;
+        bool empty2 = false;
+        var apartment1 = Model.Where(p => p.Group.ApartmentID == 1).ToList();
+        var apartment2 = Model.Where(p => p.Group.ApartmentID == 2).ToList();
+        int freeDays = 0;
+    }
+    <div class="col-md-6 status-container">
+
+        <div class="text-center status-container-child">
+            @{ 
+                if (apartment1.Count == 1)
+                {
+                    empty1 = true;
+                }
+
+                if (empty1)
+                {
+                    <div class="circle">
+                         <div class="border-empty style-gray"></div>
+                         <div class="play">1</div>
+                    </div>
+                }
+                else
+                {
+                    <div class="circle">
+                         <div class="border style-purple"></div>
+                         <div class="play">1</div>
+                    </div>
+                }
+            }
+
+
+            @{
+                if(apartment1.Count == 1)
+                {
+
+                    <p>Status: Apartman je prazan</p>
+
+                    if (apartment1[0].Future)
+                    {
+                        <p>Budućnost: <strong>@Html.ActionLink(@apartment1[0].Group.Name, "Details", new { id = apartment1[0].Group.Id, controller = "VisitorGroups" })</strong> dolazi u @apartment1[0].Group.DateFrom.DayOfWeek (@apartment1[0].Group.DateFrom.ToShortDateString())</p>
+                        freeDays = Convert.ToInt32(apartment1[0].Group.DateFrom.Subtract(DateTime.Now).TotalDays);
+                    }
+
+                    <p>Dana slobodno: @freeDays</p>
+
+                }
+                if (apartment1.Count == 2)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        if (apartment1[i].Future)
+                        {
+                            <p>Budućnost: <strong>@Html.ActionLink(@apartment1[i].Group.Name, "Details", new { id = apartment1[i].Group.Id, controller = "VisitorGroups" })</strong> dolazi u @apartment1[i].Group.DateFrom.DayOfWeek (@apartment1[i].Group.DateFrom.ToShortDateString())</p>
+                            freeDays = Convert.ToInt32(apartment1[1].Group.DateFrom.Subtract(apartment1[0].Group.DateTo).TotalDays);
+                        }
+                        else
+                        {
+                            if (apartment1[i].Arrival)
+                            {
+                                <p>Status: Dolazi <strong>@Html.ActionLink(@apartment1[i].Group.Name, "Details", new { id = apartment1[i].Group.Id, controller = "VisitorGroups" })</strong></p>
+                            }
+                            else if (apartment1[i].Departure)
+                            {
+                                <p>Status: <strong>@Html.ActionLink(@apartment1[i].Group.Name, "Details", new { id = apartment1[i].Group.Id, controller = "VisitorGroups" })</strong> ide ća</p>
+                            }
+                            else if (apartment1[i].Price > 0)
+                            {
+                                <p>Status: <strong>@Html.ActionLink(@apartment1[i].Group.Name, "Details", new { id = apartment1[i].Group.Id, controller = "VisitorGroups" })</strong> je u apartmanu za <strong>@apartment1[i].Price€</strong></p>
+                            }
+                        }
+                    }
+
+                    <p>Dana slobodno: @freeDays</p>
+                }
+                if(apartment1.Count == 3)
+                {
+                    <p>Status: <span style="color: red">Smjena</span></p>
+
+                    if (apartment1[2].Future)
+                    {
+                        <p>Budućnost: <strong>@Html.ActionLink(@apartment1[2].Group.Name, "Details", new { id = apartment1[2].Group.Id, controller = "VisitorGroups" })</strong> dolazi u @apartment1[2].Group.DateFrom.DayOfWeek (@apartment1[2].Group.DateFrom.ToShortDateString())</p>
+                        freeDays = Convert.ToInt32(apartment1[2].Group.DateFrom.Subtract(apartment1[0].Group.DateTo).TotalDays);
+                    }
+
+                    <p>Dana slobodno: @freeDays</p>
+                }
+            }
+        </div>
+    </div>
+    <div class="col-md-6 status-container">
+        <div class="text-center status-container-child">
+            @{ 
+                if (apartment2.Count == 1)
+                {
+                    empty2 = true;
+                }
+
+                if (empty2)
+                {
+                    <div class="circle">
+                         <div class="border-empty style-gray"></div>
+                         <div class="play">2</div>
+                    </div>
+                }
+                else
+                {
+                    <div class="circle">
+                         <div class="border style-green"></div>
+                         <div class="play">2</div>
+                    </div>
+                }
+            }
+
+            @{
+                if(apartment2.Count == 1)
+                {
+
+                    <p>Status: Apartman je prazan</p>
+
+                    if (apartment2[0].Future)
+                    {
+                        <p>Budućnost: <strong>@Html.ActionLink(@apartment2[0].Group.Name, "Details", new { id = apartment2[0].Group.Id, controller = "VisitorGroups" })</strong> dolazi u @apartment2[0].Group.DateFrom.DayOfWeek (@apartment2[0].Group.DateFrom.ToShortDateString())</p>
+                        freeDays = Convert.ToInt32(apartment2[0].Group.DateFrom.Subtract(DateTime.Now).TotalDays);
+                    }
+
+                    <p>Dana slobodno: @freeDays</p>
+                }
+                if (apartment2.Count == 2)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        if (apartment2[i].Future)
+                        {
+                            <p>Budućnost: <strong>@Html.ActionLink(@apartment2[i].Group.Name, "Details", new { id = apartment2[i].Group.Id, controller = "VisitorGroups" })</strong> dolazi u @apartment2[i].Group.DateFrom.DayOfWeek (@apartment2[i].Group.DateFrom.ToShortDateString())</p>
+                            freeDays = Convert.ToInt32(apartment2[1].Group.DateFrom.Subtract(apartment2[0].Group.DateTo).TotalDays);
+                        }
+                        else
+                        {
+                            if (apartment2[i].Arrival)
+                            {
+                                <p>Status: Dolazi <strong>@Html.ActionLink(@apartment2[i].Group.Name, "Details", new { id = apartment2[i].Group.Id, controller = "VisitorGroups" })</strong></p>
+                            }
+                            else if (apartment2[i].Departure)
+                            {
+                                <p>Status: <strong>@Html.ActionLink(@apartment2[i].Group.Name, "Details", new { id = apartment2[i].Group.Id, controller = "VisitorGroups" })</strong> ide ća</p>
+                            }
+                            else if (apartment2[i].Price > 0)
+                            {
+                                <p>Status: <strong>@Html.ActionLink(@apartment2[i].Group.Name, "Details", new { id = apartment2[i].Group.Id, controller = "VisitorGroups" })</strong> je u apartmanu za <strong>@apartment2[i].Price€</strong></p>
+                            }
+                        }
+                    }
+
+                    <p>Dana slobodno: @freeDays</p>
+                }
+                if(apartment2.Count == 3)
+                {
+                    <p>Status: <span style="color: red">Smjena</span></p>
+
+                    if (apartment2[2].Future)
+                    {
+                        <p>Budućnost: <strong>@Html.ActionLink(@apartment2[2].Group.Name, "Details", new { id = apartment2[2].Group.Id, controller = "VisitorGroups" })</strong> dolazi u @apartment1[0].Group.DateFrom.DayOfWeek (@apartment1[0].Group.DateFrom.ToShortDateString())</p>
+                        freeDays = Convert.ToInt32(apartment2[2].Group.DateFrom.Subtract(apartment2[0].Group.DateTo).TotalDays);
+                    }
+
+                    <p>Dana slobodno: @freeDays</p>
+                }
+            }
+        </div>
+    </div>
+</div>

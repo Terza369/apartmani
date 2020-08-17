@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Apartmani.Web.Areas.Admin.Models.Inquiry>
+
+@{
+    ViewBag.Title = "Upiti";
+}
+
+<div class="panel panel-heading">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Upiti</h2>
+        </div>
+    </div>
+</div>
+
+<table id="inquiries-table" class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Slobodno</th>
+            <th>Apartman</th>
+            <th>Datum dolaska</th>
+            <th>Datum odlaska</th>
+            <th>Prezime</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inquery in Model)
+        {
+            <tr onclick="location.href='@Url.Action("Details", "Inquiries", new { id = inquery.Id })'" style="cursor: pointer">
+                @if (inquery.Availability == false)
+                {
+                    <td><span class="glyphicon glyphicon-remove" style="font-size: 20px; color: red;"></span></td>
+                }
+                @if (inquery.Availability == true)
+                {
+                    <td><span class="glyphicon glyphicon-ok" style="font-size: 20px; color: lawngreen;"></span></td>
+                }
+                
+                <td>@inquery.Apartment.Name</td>
+                <td>@inquery.DateFrom.ToShortDateString()</td>
+                <td>@inquery.DateTo.ToShortDateString()</td>
+                <td>@inquery.LastName</td>
+                <td>
+                    <a href=@Url.Action("Accept", new { id= inquery.Id }) type="button" class="btn btn-sm btn-success">Accept</a>
+                    <a href=@Url.Action("Decline", new { id= inquery.Id }) type="button" class="btn btn-sm btn-danger">Decline</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

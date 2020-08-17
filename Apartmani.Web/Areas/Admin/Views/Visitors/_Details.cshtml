@@ -1,0 +1,55 @@
+﻿@model Apartmani.Web.Models.Visitor
+
+<dl class="dl-horizontal">
+    <dt>Naziv grupe</dt>
+    <dd>@Html.DisplayFor(model => model.VisitorGroup.Name)</dd>
+
+    <dt>Prezime</dt>
+    <dd>@Html.DisplayFor(model => model.LastName)</dd>
+
+    <dt>Ime</dt>
+    <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+
+    <dt>Srednje ime</dt>
+    <dd>@Html.DisplayFor(model => model.MiddleName)</dd>
+
+    <dt>Spol</dt>
+    <dd>@Html.DisplayFor(model => model.Sex)</dd>
+
+    <dt>Datum rođenja</dt>
+    <dd>@Html.DisplayFor(model => model.BirthDate)</dd>
+
+    <dt>Grad rođenja</dt>
+    <dd>@Html.DisplayFor(model => model.BirthCity.Name)</dd>
+
+    <dt>Država rođenja</dt>
+    <dd>@Html.DisplayFor(model => model.BirthCountry.Name)</dd>
+
+    <dt>Državljanstvo</dt>
+    <dd>@Html.DisplayFor(model => model.Citizenship.Name)</dd>
+
+    <dt>Grad prebivanja</dt>
+    <dd>@Html.DisplayFor(model => model.ResidenceCity.Name)</dd>
+
+    <dt>Država prebivanja</dt>
+    <dd>@Html.DisplayFor(model => model.ResidenceCountry.Name)</dd>
+
+    <dt>Adresa</dt>
+    <dd>@Html.DisplayFor(model => model.ResidenceAddress)</dd>
+
+    <dt>Tip identifikacije</dt>
+    <dd>@Html.DisplayFor(model => model.IdentificationType)</dd>
+
+    <dt>Broj identifikacije</dt>
+    <dd>@Html.DisplayFor(model => model.IdentificationNumber)</dd>
+
+    <dt>Katgorija obv. BP</dt>
+    <dd>@Html.DisplayFor(model => model.TaxpayerCategory)</dd>
+
+    <dt>Organizacija dolaska</dt>
+    <dd>@Html.DisplayFor(model => model.ArrivalOrganization)</dd>
+
+    <dt>Tip usluge</dt>
+    <dd>@Html.DisplayFor(model => model.TypeOfService)</dd>
+
+</dl>

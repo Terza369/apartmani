@@ -1,0 +1,32 @@
+﻿@model Apartmani.Web.Models.VisitorGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalji</h2>
+
+<h4>@Model.Name</h4>
+
+<hr />
+
+<div class="col-sm-12">
+    <div class="col-sm-6">
+        @Html.Partial("_Details")
+    </div>
+
+    <div class="col-sm-6">
+        <br />
+        @Html.ActionLink("Dodaj turista", "Create", "Visitors", new { id = Model.Id }, new { @class = "btn btn-lg btn-default", style= "background-color: mediumpurple; color: white" })
+    </div>
+</div>
+
+
+<div class="col-sm-12">
+    @Html.ActionLink("Izmijeni", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Izbriši", "Delete", new { id = Model.Id })
+</div>
+
+@Html.Partial("_IndexTableVisitors", Model.Visitors.ToList())
+
+@Html.ActionLink("Nazad na listu", "Index")

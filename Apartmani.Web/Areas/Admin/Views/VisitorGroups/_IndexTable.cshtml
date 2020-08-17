@@ -1,0 +1,25 @@
+﻿@model List<Apartmani.Web.Models.VisitorGroup>
+
+<table id="visitor-groups-table" class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Naziv</th>
+            <th>Apartman</th>
+            <th>Datum dolaska</th>
+            <th>Datum odlaska</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model)
+        {
+            <tr onclick="location.href='@Url.Action("Details", "VisitorGroups", new { id = group.Id })'" style="cursor: pointer">
+                <td>@group.Id</td>
+                <td>@group.Name</td>
+                <td>@group.Apartment.Name</td>
+                <td>@group.DateFrom.ToShortDateString()</td>
+                <td>@group.DateTo.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

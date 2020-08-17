@@ -1,0 +1,15 @@
+﻿@model List<Apartmani.Web.Models.Visitor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div id="filter-form-wrapper"></div>
+
+@Html.Partial("_IndexTableVisitors")

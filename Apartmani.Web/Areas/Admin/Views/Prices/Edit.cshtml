@@ -1,0 +1,145 @@
+﻿@model Apartmani.Web.Areas.Admin.Models.Prices
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Izmjeni</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Cijene</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Godina</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Apartman</div>
+            <div class="col-md-10">
+                @Html.DropDownList("ApartmentID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ApartmentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Siječanj</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.January, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.January, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Veljača</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fabruary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fabruary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Ožujak</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.March, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.March, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Travanj</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.April, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.April, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Svibanj</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.May, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.May, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Lipanj</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.June, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.June, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Srpanj</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.July, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.July, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Kolovoz</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.August, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.August, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Rujan</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Septembar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Septembar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">Listopad</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Octobar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Octobar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class = "control-label col-md-2">
+                Studeni
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Novembar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Novembar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Prosinac
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Decembar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Decembar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Spremi" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Nazad na listu", "Index")
+</div>

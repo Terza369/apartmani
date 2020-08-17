@@ -1,0 +1,28 @@
+﻿@model Apartmani.Web.Models.Visitor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+
+<div>
+    <h4>@Model.LastName @Model.FirstName</h4>
+
+    <h3>Jeste li sigurni da želite ovo obrisati?</h3>
+
+    <hr />
+
+    @Html.Partial("_Details")
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Group", "Details", new { id = Model.VisitorGroupID, controller = "VisitorGroups" })
+        </div>
+    }
+</div>

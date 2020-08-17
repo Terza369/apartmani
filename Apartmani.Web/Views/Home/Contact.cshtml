@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="container" id="contact">
+    <h2>@ViewBag.Title</h2>
+
+    <hr />
+    <br />
+    <p>If you wish to book, please use "Make inquiry" method. Otherwise you are free to contact us on our e-mail address.</p>
+    <br />
+
+    <address>
+        <strong>E-mail: </strong><a href="mailto:jakov.terzanovic@si.t-com.hr">jakov.terzanovic@si.t-com.hr</a>
+    </address>
+
+</div>
+
+
+
+@section scripts {
+
+    <script type="text/javascript">
+        $(function () {
+            document.getElementById("navigation").children[0].classList.remove("active");
+            document.getElementById("navigation").children[1].classList.add("active");
+            document.getElementById("navigation").children[2].classList.remove("active");
+        });
+
+
+    </script>
+
+
+
+}
